@@ -11,21 +11,31 @@ struct SplahSwiftUIView: View {
     @State private var isAnimating = false
     var body: some View {
         ZStack{
-            Image("Image").resizable()
-//            .scaledToFill()
-            .frame(maxWidth:  .infinity, maxHeight: .infinity).ignoresSafeArea(.all)
-       
-        Button{
-            withAnimation {
-                isAnimating.toggle()}
-        }label: {
-            NavigationLink(destination: ContentView()){
-                Label("get started", systemImage: "heart.fill")
-                    .font(.system(size: 30 )).foregroundColor(.black)
-                
-            }
-        } .scaleEffect(isAnimating ? 1.2 : 1.0) // Scale the button when isAnimating is true
-                .animation(.easeInOut(duration: 0.3))
+            Image("Image 1").resizable()
+            //            .scaledToFill()
+                .frame(maxWidth:  .infinity, maxHeight: .infinity).ignoresSafeArea(.all)
+            VStack{
+               
+                HStack(spacing: 30 ){
+                    NavigationLink(destination: LogInSwiftUIView()){
+                        Label("Sign In", systemImage: "person.fill")
+                            .font(.system(size: 25 )).foregroundColor(.black)
+                        Spacer()
+                    
+                    NavigationLink(destination: SignUpView()){
+                        Label("Sign Up", systemImage: "person.badge.plus")
+                            .font(.system(size:25 )).foregroundColor(.black)
+                        
+                    }
+                        
+                }
+                  
+                  
+                }.padding()
+                Spacer()
+            }.padding()
+          
+            
         }
         }
     }

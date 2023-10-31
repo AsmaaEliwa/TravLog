@@ -13,8 +13,10 @@ struct TravLogApp: App {
 
     var body: some Scene {
         WindowGroup {
-            SplahSwiftUIView()
-                .environment(\.managedObjectContext, persistenceController.container.viewContext)
+            NavigationView {
+                SplahSwiftUIView()
+                    .environment(\.managedObjectContext, persistenceController.container.viewContext)
+            }
         }
     }
 }
