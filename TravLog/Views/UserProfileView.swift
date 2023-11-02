@@ -41,6 +41,8 @@ struct UserProfileView: View {
             
                 .sheet(isPresented: $showAddTripSheet, content: {
                     VStack(spacing:30){
+                        Text("New Trip !").foregroundColor(.green).font(.system(size: 25 , weight: .medium)).shadow(color: .blue, radius: 10)
+                        Divider()
                         input(label: "Trip Title" , placeholder: "Enter Title", text: $tripLabel)
                         input(label: "Trip Details" , placeholder: "Enter Details", text: $tripdetails)
                       DateInput(label: "Trip Date", placeholder: "Choose the Date", text: $tripDate)
