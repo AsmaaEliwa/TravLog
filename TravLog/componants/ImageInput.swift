@@ -56,7 +56,7 @@ struct ImageInput: View {
 
             Button("Select Image") {
                 isImagePickerPresented.toggle()
-            }
+            }.padding(.trailing)
         }
         .sheet(isPresented: $isImagePickerPresented) {
             ImagePicker(selectedImage: $selectedImage)

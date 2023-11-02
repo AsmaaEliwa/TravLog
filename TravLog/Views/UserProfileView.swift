@@ -29,7 +29,7 @@ struct UserProfileView: View {
                 }
                
             }.padding()
-            Text("Welcome Back \(storedUsername ?? "")").foregroundColor(.green).font(.system(size: 30 , weight: .medium)).shadow(color: .blue, radius: 10)
+            Text("Welcome Back \(storedUsername ?? "")").foregroundColor(.green).font(.system(size: 25 , weight: .medium)).shadow(color: .blue, radius: 10)
             Divider()
             Spacer()
             
@@ -41,17 +41,19 @@ struct UserProfileView: View {
             
                 .sheet(isPresented: $showAddTripSheet, content: {
                     VStack(spacing:30){
-                        Text("New Trip !").foregroundColor(.green).font(.system(size: 25 , weight: .medium)).shadow(color: .blue, radius: 10)
+                        Text("New Trip !").foregroundColor(.green).font(.system(size: 25 , weight: .medium)).shadow(color: .blue, radius: 10).padding(.top)
                         Divider()
                         input(label: "Trip Title" , placeholder: "Enter Title", text: $tripLabel)
                         input(label: "Trip Details" , placeholder: "Enter Details", text: $tripdetails)
                       DateInput(label: "Trip Date", placeholder: "Choose the Date", text: $tripDate)
-                        ImageInput(label: "Upload Image", selectedImage: $selectedImage)
+                        ImageInput(label: "Upload Image", selectedImage: $selectedImage).padding(.bottom)
                         Button{
                             
                         }label: {
                             Label("Save",systemImage: "heart.fill").foregroundColor(.green).shadow(color: .blue, radius: 10)
-                        }
+
+                        }.padding()
+                        Spacer()
                     }.padding()
                 })
             
