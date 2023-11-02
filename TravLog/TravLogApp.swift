@@ -9,13 +9,22 @@ import SwiftUI
 
 @main
 struct TravLogApp: App {
-    let persistenceController = PersistenceController.shared
-
+    @AppStorage("isLogIn") var isLogIn:Bool?
+    let persistenceController = DataManger.shared.persistentContainer
+    
     var body: some Scene {
         WindowGroup {
             NavigationView {
-                SplahSwiftUIView()
-                    .environment(\.managedObjectContext, persistenceController.container.viewContext)
+                Group {
+                    if isLogIn ?? false{
+                                 // Display the UserProfileView when isLogIn is true
+                                 UserProfileView()
+                             } else {
+                                 // Display the SplashSwiftUIView when isLogIn is false
+                                 SplahSwiftUIView()
+                             }
+                         }
+                    .environment(\.managedObjectContext, persistenceController.viewContext)
             }
         }
     }
