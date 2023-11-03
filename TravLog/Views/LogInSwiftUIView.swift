@@ -49,7 +49,7 @@ struct LogInSwiftUIView: View {
         .background(
                   NavigationLink(
                       "", // Empty label for the link
-                      destination: UserProfileView(), // The new view you want to navigate to
+                      destination: UserProfileView( selectedImage: []), // The new view you want to navigate to
                       isActive: $isLogIn // Navigate when 'loggedIn' is true
                   )
               )

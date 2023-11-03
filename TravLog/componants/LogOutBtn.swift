@@ -11,7 +11,7 @@ struct RedButtonStyle: ButtonStyle {
         configuration.label
             .frame(width: 60, height: 15)
             .padding()
-            .background(Color.red)
+//            .background(Color.red)
             .cornerRadius(10)
             .foregroundColor(.white)
     }
@@ -27,8 +27,11 @@ struct LogOutBtn: View {
             Button{
                 showLogOutAlert = true
             }label: {
-                Label("LogOut" , systemImage: "arrow.left.circle").foregroundColor(.white).font(.system(size: 10 ,weight: .bold ))
-            }.buttonStyle(RedButtonStyle())
+                Label("LogOut" , systemImage: "arrow.left.circle").foregroundColor(.red).font(.system(size: 15 ,weight: .medium ))
+                    
+                    .shadow(color: .red, radius: 10)
+            }
+//            .buttonStyle(RedButtonStyle())
         }
         .alert(isPresented: $showLogOutAlert) {
             Alert(

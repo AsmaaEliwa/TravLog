@@ -14,8 +14,9 @@ struct UserProfileView: View {
     @State var tripLabel = ""
     @State var tripdetails = ""
     @State var tripImageURL = ""
-    @State var selectedImage: UIImage?
+    @State var selectedImage: [UIImage?]
     @State var tripDate: Date = Date()
+    @State var user : User?
   
     var body: some View {
         VStack{
@@ -33,11 +34,11 @@ struct UserProfileView: View {
             Divider()
             Spacer()
             
-//            List {
-//                ForEach(Array(user?.trips as? Set<Trip> ?? []), id: \.self) { trip in
-//                    Text(trip.title ?? "")
-//                }
-//            }
+            List {
+                ForEach(Array(user?.trips as? Set<Trip> ?? []), id: \.self) { trip in
+                    Text(trip.details ?? "")
+                }
+            }
             
                 .sheet(isPresented: $showAddTripSheet, content: {
                     VStack(spacing:30){
@@ -46,7 +47,7 @@ struct UserProfileView: View {
                         input(label: "Trip Title" , placeholder: "Enter Title", text: $tripLabel)
                         input(label: "Trip Details" , placeholder: "Enter Details", text: $tripdetails)
                       DateInput(label: "Trip Date", placeholder: "Choose the Date", text: $tripDate)
-                        ImageInput(label: "Upload Image", selectedImage: $selectedImage).padding(.bottom)
+                        ImageInput(label: "Upload Image", selectedImages: $selectedImage).padding(.bottom)
                         Button{
                             
                         }label: {
@@ -58,16 +59,18 @@ struct UserProfileView: View {
                 })
             
             
+        }.onAppear {
+            user =   DataManger.shared.fetchUser(username: storedUsername ?? "")[0]
+            
         }
-       
     }
 }
 
-struct UserProfileView_Previews: PreviewProvider {
-    static var previews: some View {
-        UserProfileView()
-            .previewDisplayName("User Profile View")
-            .environment(\.colorScheme, .light)
-            .environment(\.sizeCategory, .large)
-    }
-}
+//struct UserProfileView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        UserProfileView( selectedImage: [])
+//            .previewDisplayName("User Profile View")
+//            .environment(\.colorScheme, .light)
+//            .environment(\.sizeCategory, .large)
+//    }
+//}

@@ -1,11 +1,12 @@
 import SwiftUI
 
 struct ImagePicker: UIViewControllerRepresentable {
-    @Binding var selectedImage: UIImage?
+    @Binding var selectedImages: [UIImage?] // Change to an array of UIImage
     @Environment(\.presentationMode) private var presentationMode
 
     func makeUIViewController(context: Context) -> UIImagePickerController {
         let imagePicker = UIImagePickerController()
+//        imagePicker.allowsEditing = true
         imagePicker.delegate = context.coordinator
         return imagePicker
     }
@@ -27,7 +28,7 @@ struct ImagePicker: UIViewControllerRepresentable {
 
         func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
             if let selectedImage = info[.originalImage] as? UIImage {
-                parent.selectedImage = selectedImage
+                parent.selectedImages.append(selectedImage) // Append selected image to the array
             }
 
             parent.presentationMode.wrappedValue.dismiss()
@@ -37,29 +38,39 @@ struct ImagePicker: UIViewControllerRepresentable {
 
 struct ImageInput: View {
     var label: String
-    @Binding var selectedImage: UIImage?
+    @Binding var selectedImages: [UIImage?] // Change to an array of UIImage
     @State private var isImagePickerPresented = false
 
     var body: some View {
-        HStack {
-            Text(label)
-                .font(.headline)
-                .padding(.leading)
-                .foregroundColor(.blue)
-            Spacer()
-            if let image = selectedImage {
-                Image(uiImage: image)
-                    .resizable()
-                    .scaledToFit()
-                    .frame(maxHeight: 200)
+        VStack {
+            HStack {
+                Text(label)
+                    .font(.headline)
+                    .padding(.leading)
+                    .foregroundColor(.blue)
+                Spacer()
+
+                Button("Select Image") {
+                    isImagePickerPresented.toggle()
+                }.padding(.trailing)
             }
 
-            Button("Select Image") {
-                isImagePickerPresented.toggle()
-            }.padding(.trailing)
-        }
-        .sheet(isPresented: $isImagePickerPresented) {
-            ImagePicker(selectedImage: $selectedImage)
+            .sheet(isPresented: $isImagePickerPresented) {
+                ImagePicker(selectedImages: $selectedImages)
+            }
+
+            if !selectedImages.isEmpty {
+                ScrollView(.horizontal) {
+                    HStack {
+                        ForEach(selectedImages, id: \.self) { image in
+                            Image(uiImage: image ?? UIImage())
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .frame(maxHeight: 200)
+                        }
+                    }
+                }
+            }
         }
     }
 }
