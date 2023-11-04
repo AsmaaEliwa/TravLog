@@ -19,7 +19,7 @@ struct input: View {
                    .foregroundColor(.blue)
                
             TextField(placeholder, text: $text)
-                .textFieldStyle(RoundedBorderTextFieldStyle()).padding()
+                .textFieldStyle(RoundedBorderTextFieldStyle())
              
         }
     }

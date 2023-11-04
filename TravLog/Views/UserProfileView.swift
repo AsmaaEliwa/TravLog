@@ -16,8 +16,9 @@ struct UserProfileView: View {
     @State var tripImageURL = ""
     @State var selectedImage: [UIImage?]
     @State var tripDate: Date = Date()
-    @State var user : User?
-  
+    @State var  user:User?
+//    @ObservedObject var tripModel = TripModel()
+    @State var shouldReload = false
     var body: some View {
         VStack{
             HStack{
@@ -30,16 +31,19 @@ struct UserProfileView: View {
                 }
                
             }.padding()
-            Text("Welcome Back \(storedUsername ?? "")").foregroundColor(.green).font(.system(size: 25 , weight: .medium)).shadow(color: .blue, radius: 10)
+            Text("Welcome Back \(storedUsername ?? "")").foregroundColor(.green).font(.system(size: 20 , weight: .medium)).shadow(color: .blue, radius: 10)
             Divider()
             Spacer()
             
-            List {
-                ForEach(Array(user?.trips as? Set<Trip> ?? []), id: \.self) { trip in
-                    Text(trip.details ?? "")
+            ScrollView {
+                VStack(spacing:30){
+                    ForEach(Array(user?.trips as? Set<Trip> ?? []), id: \.self) { trip in
+                        //                    Text(trip.details ?? "")
+                        TripView( trip: trip )
+                    }
                 }
             }
-            
+            Spacer()
                 .sheet(isPresented: $showAddTripSheet, content: {
                     VStack(spacing:30){
                         Text("New Trip !").foregroundColor(.green).font(.system(size: 25 , weight: .medium)).shadow(color: .blue, radius: 10).padding(.top)
@@ -49,7 +53,9 @@ struct UserProfileView: View {
                       DateInput(label: "Trip Date", placeholder: "Choose the Date", text: $tripDate)
                         ImageInput(label: "Upload Image", selectedImages: $selectedImage).padding(.bottom)
                         Button{
-                            
+                            TripModel().addTrip(user: user ?? User(), title: tripLabel, details: tripdetails, date: tripDate, images: selectedImage)
+                            showAddTripSheet = false
+                            shouldReload.toggle()
                         }label: {
                             Label("Save",systemImage: "heart.fill").foregroundColor(.green).shadow(color: .blue, radius: 10)
 
@@ -59,9 +65,16 @@ struct UserProfileView: View {
                 })
             
             
-        }.onAppear {
-            user =   DataManger.shared.fetchUser(username: storedUsername ?? "")[0]
-            
+        }
+        .onAppear {
+            if isLogIn == true {
+                user = DataManger.shared.fetchUser(username: storedUsername ?? "")[0]
+            }
+        }
+        .onChange(of: shouldReload) { _ in
+            if isLogIn == true {
+                user = DataManger.shared.fetchUser(username: storedUsername ?? "")[0]
+            }
         }
     }
 }

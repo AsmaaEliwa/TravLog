@@ -20,8 +20,8 @@ struct SignUpView: View {
     var body: some View {
         
         TittleView(label: "Sign Up").padding(.top)
-        testSwiftUIView()
-        VStack(spacing: 30){
+//        testSwiftUIView()
+        VStack(){
             Group{
                 input(label: "Email", placeholder: "Enter Email", text: $email)
                 input(label: "Username", placeholder: "Enter username", text: $username)

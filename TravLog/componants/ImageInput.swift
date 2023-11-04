@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct ImagePicker: UIViewControllerRepresentable {
-    @Binding var selectedImages: [UIImage?] // Change to an array of UIImage
+    @Binding var selectedImages: [UIImage?]
     @Environment(\.presentationMode) private var presentationMode
 
     func makeUIViewController(context: Context) -> UIImagePickerController {
@@ -12,7 +12,7 @@ struct ImagePicker: UIViewControllerRepresentable {
     }
 
     func updateUIViewController(_ uiViewController: UIImagePickerController, context: Context) {
-        // Update the view controller if needed
+   
     }
 
     func makeCoordinator() -> Coordinator {

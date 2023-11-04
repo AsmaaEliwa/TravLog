@@ -27,7 +27,7 @@ struct LogOutBtn: View {
             Button{
                 showLogOutAlert = true
             }label: {
-                Label("LogOut" , systemImage: "arrow.left.circle").foregroundColor(.red).font(.system(size: 15 ,weight: .medium ))
+                Label("Logout" , systemImage: "arrow.left.square").foregroundColor(.red).font(.system(size: 15 ,weight: .medium ))
                     
                     .shadow(color: .red, radius: 10)
             }

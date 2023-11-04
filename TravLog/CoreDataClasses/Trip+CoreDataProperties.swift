@@ -2,7 +2,7 @@
 //  Trip+CoreDataProperties.swift
 //  TravLog
 //
-//  Created by asmaa gamal  on 03/11/2023.
+//  Created by asmaa gamal  on 04/11/2023.
 //
 //
 
@@ -29,10 +29,10 @@ extension Trip {
 extension Trip {
 
     @objc(addImagesObject:)
-    @NSManaged public func addToImages(_ value: TImage)
+    @NSManaged public func addToImages(_ value: TripImage)
 
     @objc(removeImagesObject:)
-    @NSManaged public func removeFromImages(_ value: TImage)
+    @NSManaged public func removeFromImages(_ value: TripImage)
 
     @objc(addImages:)
     @NSManaged public func addToImages(_ values: NSSet)

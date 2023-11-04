@@ -7,19 +7,20 @@
 
 import Foundation
 import CoreData
+import SwiftUI
 class DataManger{
     static let shared = DataManger()
     lazy var persistentContainer: NSPersistentContainer = {
-         let container = NSPersistentContainer(name: "TravLog")
-         container.loadPersistentStores { description, error in
-             if let error = error {
-                 fatalError("Unable to load persistent stores: \(error)")
-             }else{
-                 print("loaded")
-             }
-         }
-         return container
-     }()
+        let container = NSPersistentContainer(name: "TravLog")
+        container.loadPersistentStores { description, error in
+            if let error = error {
+                fatalError("Unable to load persistent stores: \(error)")
+            }else{
+                print("loaded")
+            }
+        }
+        return container
+    }()
     
     func addUser(username:String , email:String , password:String){
         if let entity = NSEntityDescription.entity(forEntityName: "User", in: persistentContainer.viewContext){
@@ -34,12 +35,11 @@ class DataManger{
             }catch{
                 print(error)
             }
-        
+            
         }
-          
+        
         
     }
-    
     
     func fetchUser(username:String) -> [User]{
         let request: NSFetchRequest<User> = User.fetchRequest()
@@ -56,10 +56,69 @@ class DataManger{
         
     }
     
+    func addImage(imageUrl: String , date:Date,trip:Trip )-> TripImage?{
+        if let entity = NSEntityDescription.entity(forEntityName: "TripImage", in: persistentContainer.viewContext){
+            let newImage = NSManagedObject(entity: entity, insertInto: persistentContainer.viewContext)
+            newImage.setValue(imageUrl, forKey: "imageUrl")
+            newImage.setValue(date, forKey: "date")
+//            newImage.trip = trip
+            if let tripImage = newImage as? TripImage {
+                trip.addToImages(tripImage)
+            }
+            do {
+                try persistentContainer.viewContext.save()
+                print("image saved")
+                return newImage as? TripImage
+            } catch {
+               print(error)
+            }
+        
+        }
+        return TripImage()
+        
+        
+    }
+
     
+    func saveTrip(user: User, title: String, details: String, date: Date, images: [UIImage?]) {
+        if let entity = NSEntityDescription.entity(forEntityName: "Trip", in: persistentContainer.viewContext) {
+            if let newTrip = NSManagedObject(entity: entity, insertInto: persistentContainer.viewContext) as? Trip {
+                newTrip.timestamp = Date()
+                newTrip.title = title
+                newTrip.details = details
+                newTrip.date = date
+                user.addToTrips(newTrip)
+                
+                let imagesUrl = TImageMode().saveImagesToFile(images)
+                for url in imagesUrl {
+                 addImage(imageUrl: url, date: date , trip:  newTrip)
+//
+                }
+                
+                do {
+                    try persistentContainer.viewContext.save()
+                    
+                    print("Trip added")
+                } catch {
+                    print(error)
+                }
+            }
+        }
+    }
+
     
-    
-    
+    func deleteTrip(user:User , trip:Trip){
+        user.removeFromTrips(trip)
+        do {
+            try persistentContainer.viewContext.save()
+            
+            print("Trip Deleted")
+        } catch {
+            print(error)
+        }
+        
+    }
+
     
     
 }

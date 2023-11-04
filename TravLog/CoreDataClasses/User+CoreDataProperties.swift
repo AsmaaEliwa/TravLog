@@ -2,7 +2,7 @@
 //  User+CoreDataProperties.swift
 //  TravLog
 //
-//  Created by asmaa gamal  on 03/11/2023.
+//  Created by asmaa gamal  on 04/11/2023.
 //
 //
 

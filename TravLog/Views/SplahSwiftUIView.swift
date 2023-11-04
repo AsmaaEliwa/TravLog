@@ -13,20 +13,21 @@ struct SplahSwiftUIView: View {
         ZStack{
            
             Image("Image 1").resizable()
-            //            .scaledToFill()
+                       
                 .frame(maxWidth:  .infinity, maxHeight: .infinity).ignoresSafeArea(.all)
+                .scaledToFit()
             VStack{
                
                 HStack(spacing: 30 ){
                     NavigationLink(destination: LogInSwiftUIView()){
                         Label("Sign In", systemImage: "person.fill")
-                            .font(.system(size: 25 )).foregroundColor(.white)
-                            .shadow(color: Color.white, radius: 5, x: 0, y: 0)
+                            .font(.system(size: 25 )).foregroundColor(.green)
+                            .shadow(color: Color.green, radius: 5, x: 0, y: 0)
                         Spacer()
                     
                     NavigationLink(destination: SignUpView()){
                         Label("Sign Up", systemImage: "person.badge.plus")
-                            .font(.system(size:25 )).foregroundColor(.white).shadow(color: Color.white, radius: 5, x: 0, y: 0)
+                            .font(.system(size:25 )).foregroundColor(.green).shadow(color: Color.green, radius: 5, x: 0, y: 0)
                         
                     }
                        

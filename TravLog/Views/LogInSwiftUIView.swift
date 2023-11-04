@@ -20,7 +20,7 @@ struct LogInSwiftUIView: View {
     }
     var body: some View {
         TittleView(label: "Sign In").padding(.top)
-        VStack(spacing: 30){
+        VStack(){
             Group{
                 input(label: "Username", placeholder: "Enter username", text: $username)
                 input(label: "Password", placeholder: "Enter Password", text: $password)
