@@ -39,7 +39,7 @@ struct UserProfileView: View {
                 VStack(spacing:30){
                     ForEach(Array(user?.trips as? Set<Trip> ?? []), id: \.self) { trip in
                         //                    Text(trip.details ?? "")
-                        TripView( trip: trip )
+                        TripView( trip: trip ).padding()
                     }
                 }
             }
