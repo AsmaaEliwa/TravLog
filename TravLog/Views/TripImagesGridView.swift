@@ -15,23 +15,27 @@ struct TripImagesGridView: View {
                         //                           let uiImage = UIImage(contentsOfFile: imageUrl) {
                         //
                         if let imageUrl = image.imageUrl {
+                            let documentDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
+                            let fullImageUrl = documentDirectory.appendingPathComponent(imageUrl)
+
                             let fileManager = FileManager.default
-                            if fileManager.fileExists(atPath: imageUrl) {
-                                let uiImage = UIImage(contentsOfFile: imageUrl)
+                            if fileManager.fileExists(atPath: fullImageUrl.path) {
+                                let uiImage = UIImage(contentsOfFile: fullImageUrl.path)
                                 
                                 Image(uiImage: uiImage ?? UIImage())
                                     .resizable()
                                     .aspectRatio(contentMode: .fill)
                                     .frame(width: 100, height: 100)
                                     .cornerRadius(10)
-                                
                             } else {
+                                // Handle missing image
                                 Image(systemName: "photo")
                                     .resizable()
                                     .aspectRatio(contentMode: .fill)
                                     .frame(width: 100, height: 100)
                                     .cornerRadius(10)
                             }
+                        
                         }
                     }
                 }
