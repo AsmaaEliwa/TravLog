@@ -9,7 +9,7 @@ import SwiftUI
 
 struct TripView: View {
     var trip: Trip?
- 
+    @ObservedObject var tripModel:TripModel
     @State private var isDeleted = false
     var body: some View {
      
@@ -22,6 +22,7 @@ struct TripView: View {
                     Button{
                         TripModel().deleteTrip(user: trip?.user ?? User() , trip: trip ?? Trip())
                         isDeleted = true
+                        tripModel.updateUserProfileView()
                         
                     }label: {
                         Label("Delete", systemImage: "trash").foregroundColor(.red)

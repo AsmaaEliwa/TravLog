@@ -12,7 +12,6 @@ class TripModel: ObservableObject{
     @AppStorage("username") var storedUsername:String?
     @Published var loggedinuser: User?
     init() {
-           // Initialize the `loggedinuser` property when the `TripModel` instance is created.
            loggedinuser = DataManger.shared.fetchUser(username: storedUsername ?? "")[0]
        }
     func addTrip(user: User, title: String, details: String, date: Date, images: [UIImage?]){
@@ -24,4 +23,8 @@ class TripModel: ObservableObject{
         DataManger.shared.deleteTrip(user:user , trip:trip)
         loggedinuser = DataManger.shared.fetchUser(username: storedUsername ?? "")[0]
     }
+    func updateUserProfileView() {
+        objectWillChange.send()
+    }
+
 }

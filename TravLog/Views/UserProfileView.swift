@@ -17,8 +17,13 @@ struct UserProfileView: View {
     @State var selectedImage: [UIImage?]
     @State var tripDate: Date = Date()
     @State var  user:User?
-//    @ObservedObject var tripModel = TripModel()
+    @ObservedObject var tripModel:TripModel = TripModel()
     @State var shouldReload = false
+    func reset(){
+        tripLabel = ""
+        tripdetails = ""
+        selectedImage = []
+    }
     var body: some View {
         VStack{
             HStack{
@@ -37,9 +42,9 @@ struct UserProfileView: View {
             
             ScrollView {
                 VStack(spacing:30){
-                    ForEach(Array(user?.trips as? Set<Trip> ?? []), id: \.self) { trip in
+                    ForEach(Array(tripModel.loggedinuser?.trips as? Set<Trip> ?? []), id: \.self) { trip in
                         //                    Text(trip.details ?? "")
-                        TripView( trip: trip ).padding()
+                        TripView( trip: trip , tripModel: tripModel).padding()
                     }
                 }
             }
@@ -53,9 +58,11 @@ struct UserProfileView: View {
                       DateInput(label: "Trip Date", placeholder: "Choose the Date", text: $tripDate)
                         ImageInput(label: "Upload Image", selectedImages: $selectedImage).padding(.bottom)
                         Button{
-                            TripModel().addTrip(user: user ?? User(), title: tripLabel, details: tripdetails, date: tripDate, images: selectedImage)
+                            TripModel().addTrip(user: tripModel.loggedinuser ?? User(), title: tripLabel, details: tripdetails, date: tripDate, images: selectedImage)
                             showAddTripSheet = false
                             shouldReload.toggle()
+                            reset()
+                            tripModel.updateUserProfileView()
                         }label: {
                             Label("Save",systemImage: "heart.fill").foregroundColor(.green).shadow(color: .blue, radius: 10)
 
@@ -63,21 +70,18 @@ struct UserProfileView: View {
                         Spacer()
                     }.padding()
                 })
-            
+              
             
         }
-        .onAppear {
-            if isLogIn == true {
-                user = DataManger.shared.fetchUser(username: storedUsername ?? "")[0]
-            }
-        }
-        .onChange(of: shouldReload) { _ in
-            if isLogIn == true {
-                user = DataManger.shared.fetchUser(username: storedUsername ?? "")[0]
-            }
+//        .onAppear {
+//            if isLogIn == true {
+//                user = DataManger.shared.fetchUser(username: storedUsername ?? "")[0]
+//            }
+//        }
+     
         }
     }
-}
+//}
 
 //struct UserProfileView_Previews: PreviewProvider {
 //    static var previews: some View {
