@@ -2,7 +2,7 @@
 //  TripImage+CoreDataProperties.swift
 //  TravLog
 //
-//  Created by asmaa gamal  on 04/11/2023.
+//  Created by asmaa gamal  on 07/11/2023.
 //
 //
 
@@ -16,8 +16,10 @@ extension TripImage {
         return NSFetchRequest<TripImage>(entityName: "TripImage")
     }
 
-    @NSManaged public var imageUrl: String?
     @NSManaged public var date: Date?
+    @NSManaged public var imageUrl: String?
+    @NSManaged public var latitude: Double
+    @NSManaged public var longitude: Double
     @NSManaged public var trip: Trip?
 
 }

@@ -73,12 +73,11 @@ struct UserProfileView: View {
               
             
         }
-//        .onAppear {
-//            if isLogIn == true {
-//                user = DataManger.shared.fetchUser(username: storedUsername ?? "")[0]
-//            }
-//        }
-     
+        .onAppear {
+            SALocationManager.sharedInstance.setupLocationManager()
+            SALocationManager.sharedInstance.requestPersmission()
+    
+        }
         }
     }
 //}

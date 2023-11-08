@@ -11,9 +11,13 @@ import CoreData
 class TripModel: ObservableObject{
     @AppStorage("username") var storedUsername:String?
     @Published var loggedinuser: User?
+    
     init() {
-           loggedinuser = DataManger.shared.fetchUser(username: storedUsername ?? "")[0]
-       }
+        var users = DataManger.shared.fetchUser(username: storedUsername ?? "")
+        if !users.isEmpty {
+            loggedinuser = users[0]
+        }
+    }
     func addTrip(user: User, title: String, details: String, date: Date, images: [UIImage?]){
         DataManger.shared.saveTrip(user: user, title: title, details: details, date: date, images: images)
         loggedinuser = DataManger.shared.fetchUser(username: storedUsername ?? "")[0]

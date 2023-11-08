@@ -2,7 +2,7 @@
 //  Trip+CoreDataProperties.swift
 //  TravLog
 //
-//  Created by asmaa gamal  on 04/11/2023.
+//  Created by asmaa gamal  on 07/11/2023.
 //
 //
 
@@ -20,8 +20,8 @@ extension Trip {
     @NSManaged public var details: String?
     @NSManaged public var timestamp: Date?
     @NSManaged public var title: String?
-    @NSManaged public var user: User?
     @NSManaged public var images: NSSet?
+    @NSManaged public var user: User?
 
 }
 

@@ -29,13 +29,14 @@
 		7F6786362AF5244600D9BBF3 /* TImageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F6786352AF5244600D9BBF3 /* TImageModel.swift */; };
 		7F6786382AF6903E00D9BBF3 /* TripView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F6786372AF6903E00D9BBF3 /* TripView.swift */; };
 		7F67863A2AF690DD00D9BBF3 /* TripImagesGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F6786392AF690DD00D9BBF3 /* TripImagesGridView.swift */; };
-		7F67865A2AF6A9B500D9BBF3 /* Trip+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F6786542AF6A9B500D9BBF3 /* Trip+CoreDataClass.swift */; };
-		7F67865B2AF6A9B500D9BBF3 /* Trip+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F6786552AF6A9B500D9BBF3 /* Trip+CoreDataProperties.swift */; };
-		7F67865C2AF6A9B500D9BBF3 /* User+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F6786562AF6A9B500D9BBF3 /* User+CoreDataClass.swift */; };
-		7F67865D2AF6A9B500D9BBF3 /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F6786572AF6A9B500D9BBF3 /* User+CoreDataProperties.swift */; };
-		7F67865E2AF6A9B500D9BBF3 /* TripImage+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F6786582AF6A9B500D9BBF3 /* TripImage+CoreDataClass.swift */; };
-		7F67865F2AF6A9B500D9BBF3 /* TripImage+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F6786592AF6A9B500D9BBF3 /* TripImage+CoreDataProperties.swift */; };
 		7F6786612AF6AA9D00D9BBF3 /* TripModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F6786602AF6AA9D00D9BBF3 /* TripModel.swift */; };
+		7F6786B82AFB038400D9BBF3 /* LocationManger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F6786B72AFB038400D9BBF3 /* LocationManger.swift */; };
+		7F6786BF2AFB058C00D9BBF3 /* Trip+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F6786B92AFB058C00D9BBF3 /* Trip+CoreDataClass.swift */; };
+		7F6786C02AFB058C00D9BBF3 /* Trip+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F6786BA2AFB058C00D9BBF3 /* Trip+CoreDataProperties.swift */; };
+		7F6786C12AFB058C00D9BBF3 /* User+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F6786BB2AFB058C00D9BBF3 /* User+CoreDataClass.swift */; };
+		7F6786C22AFB058C00D9BBF3 /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F6786BC2AFB058C00D9BBF3 /* User+CoreDataProperties.swift */; };
+		7F6786C32AFB058C00D9BBF3 /* TripImage+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F6786BD2AFB058C00D9BBF3 /* TripImage+CoreDataClass.swift */; };
+		7F6786C42AFB058C00D9BBF3 /* TripImage+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F6786BE2AFB058C00D9BBF3 /* TripImage+CoreDataProperties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -63,13 +64,14 @@
 		7F6786372AF6903E00D9BBF3 /* TripView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripView.swift; sourceTree = "<group>"; };
 		7F6786392AF690DD00D9BBF3 /* TripImagesGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripImagesGridView.swift; sourceTree = "<group>"; };
 		7F67863B2AF692E300D9BBF3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		7F6786542AF6A9B500D9BBF3 /* Trip+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Trip+CoreDataClass.swift"; sourceTree = "<group>"; };
-		7F6786552AF6A9B500D9BBF3 /* Trip+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Trip+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		7F6786562AF6A9B500D9BBF3 /* User+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataClass.swift"; sourceTree = "<group>"; };
-		7F6786572AF6A9B500D9BBF3 /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		7F6786582AF6A9B500D9BBF3 /* TripImage+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TripImage+CoreDataClass.swift"; sourceTree = "<group>"; };
-		7F6786592AF6A9B500D9BBF3 /* TripImage+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TripImage+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		7F6786602AF6AA9D00D9BBF3 /* TripModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripModel.swift; sourceTree = "<group>"; };
+		7F6786B72AFB038400D9BBF3 /* LocationManger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManger.swift; sourceTree = "<group>"; };
+		7F6786B92AFB058C00D9BBF3 /* Trip+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Trip+CoreDataClass.swift"; sourceTree = "<group>"; };
+		7F6786BA2AFB058C00D9BBF3 /* Trip+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Trip+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		7F6786BB2AFB058C00D9BBF3 /* User+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataClass.swift"; sourceTree = "<group>"; };
+		7F6786BC2AFB058C00D9BBF3 /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		7F6786BD2AFB058C00D9BBF3 /* TripImage+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TripImage+CoreDataClass.swift"; sourceTree = "<group>"; };
+		7F6786BE2AFB058C00D9BBF3 /* TripImage+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TripImage+CoreDataProperties.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -157,12 +159,12 @@
 		7F6785FF2AF51B8B00D9BBF3 /* CoreDataClasses */ = {
 			isa = PBXGroup;
 			children = (
-				7F6786542AF6A9B500D9BBF3 /* Trip+CoreDataClass.swift */,
-				7F6786552AF6A9B500D9BBF3 /* Trip+CoreDataProperties.swift */,
-				7F6786562AF6A9B500D9BBF3 /* User+CoreDataClass.swift */,
-				7F6786572AF6A9B500D9BBF3 /* User+CoreDataProperties.swift */,
-				7F6786582AF6A9B500D9BBF3 /* TripImage+CoreDataClass.swift */,
-				7F6786592AF6A9B500D9BBF3 /* TripImage+CoreDataProperties.swift */,
+				7F6786B92AFB058C00D9BBF3 /* Trip+CoreDataClass.swift */,
+				7F6786BA2AFB058C00D9BBF3 /* Trip+CoreDataProperties.swift */,
+				7F6786BB2AFB058C00D9BBF3 /* User+CoreDataClass.swift */,
+				7F6786BC2AFB058C00D9BBF3 /* User+CoreDataProperties.swift */,
+				7F6786BD2AFB058C00D9BBF3 /* TripImage+CoreDataClass.swift */,
+				7F6786BE2AFB058C00D9BBF3 /* TripImage+CoreDataProperties.swift */,
 			);
 			path = CoreDataClasses;
 			sourceTree = "<group>";
@@ -172,6 +174,7 @@
 			children = (
 				7F6786352AF5244600D9BBF3 /* TImageModel.swift */,
 				7F6786602AF6AA9D00D9BBF3 /* TripModel.swift */,
+				7F6786B72AFB038400D9BBF3 /* LocationManger.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -246,28 +249,29 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7F67865B2AF6A9B500D9BBF3 /* Trip+CoreDataProperties.swift in Sources */,
 				7F6785E92AF2F42B00D9BBF3 /* DataManger.swift in Sources */,
+				7F6786BF2AFB058C00D9BBF3 /* Trip+CoreDataClass.swift in Sources */,
 				7F6786612AF6AA9D00D9BBF3 /* TripModel.swift in Sources */,
-				7F67865D2AF6A9B500D9BBF3 /* User+CoreDataProperties.swift in Sources */,
-				7F67865A2AF6A9B500D9BBF3 /* Trip+CoreDataClass.swift in Sources */,
 				7F6785F22AF3C4E400D9BBF3 /* LogOutBtn.swift in Sources */,
 				7F6786382AF6903E00D9BBF3 /* TripView.swift in Sources */,
 				7F6785522AF10ED700D9BBF3 /* Persistence.swift in Sources */,
-				7F67865C2AF6A9B500D9BBF3 /* User+CoreDataClass.swift in Sources */,
 				7F6786362AF5244600D9BBF3 /* TImageModel.swift in Sources */,
+				7F6786C32AFB058C00D9BBF3 /* TripImage+CoreDataClass.swift in Sources */,
 				7F67855C2AF10F3B00D9BBF3 /* SplahSwiftUIView.swift in Sources */,
-				7F67865F2AF6A9B500D9BBF3 /* TripImage+CoreDataProperties.swift in Sources */,
 				7F67855E2AF11BE300D9BBF3 /* LogInSwiftUIView.swift in Sources */,
 				7F6785652AF1232800D9BBF3 /* TittleView.swift in Sources */,
+				7F6786C22AFB058C00D9BBF3 /* User+CoreDataProperties.swift in Sources */,
+				7F6786B82AFB038400D9BBF3 /* LocationManger.swift in Sources */,
 				7F6785EE2AF3BBE700D9BBF3 /* UserProfileView.swift in Sources */,
-				7F67865E2AF6A9B500D9BBF3 /* TripImage+CoreDataClass.swift in Sources */,
 				7F6785F02AF3C21400D9BBF3 /* DateInput.swift in Sources */,
 				7F67854B2AF10ED200D9BBF3 /* ContentView.swift in Sources */,
 				7F6785EC2AF3B9DB00D9BBF3 /* ValidationAlertView.swift in Sources */,
 				7F6785632AF121B600D9BBF3 /* SignUpView.swift in Sources */,
 				7F6785F62AF3CBD700D9BBF3 /* Image.swift in Sources */,
 				7F6785672AF12E4500D9BBF3 /* testSwiftUIView.swift in Sources */,
+				7F6786C02AFB058C00D9BBF3 /* Trip+CoreDataProperties.swift in Sources */,
+				7F6786C12AFB058C00D9BBF3 /* User+CoreDataClass.swift in Sources */,
+				7F6786C42AFB058C00D9BBF3 /* TripImage+CoreDataProperties.swift in Sources */,
 				7F67863A2AF690DD00D9BBF3 /* TripImagesGridView.swift in Sources */,
 				7F6785492AF10ED200D9BBF3 /* TravLogApp.swift in Sources */,
 				7F6785602AF11C0A00D9BBF3 /* input.swift in Sources */,

@@ -61,7 +61,18 @@ class DataManger{
             let newImage = NSManagedObject(entity: entity, insertInto: persistentContainer.viewContext)
             newImage.setValue(imageUrl, forKey: "imageUrl")
             newImage.setValue(date, forKey: "date")
-//            newImage.trip = trip
+            SALocationManager.sharedInstance.getCurrentUserLocation { location in
+                if let location = location {
+                    print("User location: \(location.coordinate.latitude), \(location.coordinate.longitude)")
+                    // Now you can use the user's location in your code.
+                    newImage.setValue(location.coordinate.latitude, forKey: "latitude")
+                    newImage.setValue(location.coordinate.longitude, forKey: "longitude")
+                } else {
+                    print("Location not available yet. Waiting for an update...")
+                }
+            }
+            
+           
             if let tripImage = newImage as? TripImage {
                 trip.addToImages(tripImage)
             }
