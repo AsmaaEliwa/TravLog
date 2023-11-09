@@ -14,8 +14,8 @@
             filePath = "TravLog/Views/UserProfileView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "31"
-            endingLineNumber = "31"
+            startingLineNumber = "32"
+            endingLineNumber = "32"
             landmarkName = "body"
             landmarkType = "24">
             <Locations>
@@ -109,9 +109,9 @@
             filePath = "TravLog/DataManger.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "111"
-            endingLineNumber = "111"
-            landmarkName = "saveTrip(user:title:details:date:images:)"
+            startingLineNumber = "114"
+            endingLineNumber = "114"
+            landmarkName = "saveTrip(user:title:details:date:images:imageUrl:)"
             landmarkType = "7">
             <Locations>
                <Location
@@ -444,13 +444,60 @@
             endingLineNumber = "64"
             landmarkName = "addImage(imageUrl:date:trip:)"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "50F30156-3212-41BD-8CE4-F19F3F0E5731 - 82f04b90cf484dcb"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "TravLog.DataManger.addImage(imageUrl: Swift.String, date: Foundation.Date, trip: TravLog.Trip) -&gt; Swift.Optional&lt;TravLog.TripImage&gt;"
+                  moduleName = "TravLog"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/asmaagamal/Desktop/TravLog/TravLog/DataManger.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "64"
+                  endingLineNumber = "64"
+                  offsetFromSymbolStart = "1049">
+               </Location>
+               <Location
+                  uuid = "50F30156-3212-41BD-8CE4-F19F3F0E5731 - 82f04b90cf484dcb"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "TravLog.DataManger.addImage(imageUrl: Swift.String, date: Foundation.Date, trip: TravLog.Trip) -&gt; Swift.Optional&lt;TravLog.TripImage&gt;"
+                  moduleName = "TravLog"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/asmaagamal/Desktop/TravLog/TravLog/DataManger.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "64"
+                  endingLineNumber = "64"
+                  offsetFromSymbolStart = "1005">
+               </Location>
+               <Location
+                  uuid = "50F30156-3212-41BD-8CE4-F19F3F0E5731 - ce777285963c4632"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;__C.CLLocation&gt;) -&gt; () in TravLog.DataManger.addImage(imageUrl: Swift.String, date: Foundation.Date, trip: TravLog.Trip) -&gt; Swift.Optional&lt;TravLog.TripImage&gt;"
+                  moduleName = "TravLog"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/asmaagamal/Desktop/TravLog/TravLog/DataManger.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "65"
+                  endingLineNumber = "65"
+                  offsetFromSymbolStart = "85">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "730E25E0-A11D-4E0F-BB1C-281F6B23EDD4"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TravLog/DataManger.swift"
@@ -498,7 +545,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "A1FDEDC0-AF11-4CF4-AE06-CE93BC21DDCC"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TravLog/DataManger.swift"
@@ -571,6 +618,22 @@
             endingLineNumber = "17"
             landmarkName = "body"
             landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "27D7F585-AE3C-4C0B-B2F6-BC0131D69AA1"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TravLog/DataManger.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "74"
+            endingLineNumber = "74"
+            landmarkName = "addImage(imageUrl:date:trip:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

@@ -17,6 +17,7 @@ struct UserProfileView: View {
     @State var selectedImage: [UIImage?]
     @State var tripDate: Date = Date()
     @State var  user:User?
+    @State var imageUrl = ""
     @ObservedObject var tripModel:TripModel = TripModel()
     @State var shouldReload = false
     func reset(){
@@ -37,13 +38,14 @@ struct UserProfileView: View {
                
             }.padding()
             Text("Welcome Back \(storedUsername ?? "")").foregroundColor(.green).font(.system(size: 20 , weight: .medium)).shadow(color: .blue, radius: 10)
+            Text(tripModel.loggedinuser?.email ?? "").foregroundColor(.secondary).font(.system(size: 10 , weight: .medium )).padding(.bottom)
             Divider()
             Spacer()
             
             ScrollView {
                 VStack(spacing:30){
                     ForEach(Array(tripModel.loggedinuser?.trips as? Set<Trip> ?? []), id: \.self) { trip in
-                        //                    Text(trip.details ?? "")
+                        
                         TripView( trip: trip , tripModel: tripModel).padding()
                     }
                 }
@@ -57,8 +59,9 @@ struct UserProfileView: View {
                         input(label: "Trip Details" , placeholder: "Enter Details", text: $tripdetails)
                       DateInput(label: "Trip Date", placeholder: "Choose the Date", text: $tripDate)
                         ImageInput(label: "Upload Image", selectedImages: $selectedImage).padding(.bottom)
+                        TextField("Image URL", text: $imageUrl).textFieldStyle(.roundedBorder).padding()
                         Button{
-                            TripModel().addTrip(user: tripModel.loggedinuser ?? User(), title: tripLabel, details: tripdetails, date: tripDate, images: selectedImage)
+                            TripModel().addTrip(user: tripModel.loggedinuser ?? User(), title: tripLabel, details: tripdetails, date: tripDate, images: selectedImage ,imageUrl: imageUrl)
                             showAddTripSheet = false
                             shouldReload.toggle()
                             reset()
@@ -75,8 +78,12 @@ struct UserProfileView: View {
         }
         .onAppear {
             SALocationManager.sharedInstance.setupLocationManager()
+            SALocationManager.sharedInstance.startTrackingLocation()
             SALocationManager.sharedInstance.requestPersmission()
     
+        }
+        .onDisappear(){
+            SALocationManager.sharedInstance.stopTracking()
         }
         }
     }
