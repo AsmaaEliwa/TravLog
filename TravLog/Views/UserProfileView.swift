@@ -61,11 +61,18 @@ struct UserProfileView: View {
                         ImageInput(label: "Upload Image", selectedImages: $selectedImage).padding(.bottom)
                         TextField("Image URL", text: $imageUrl).textFieldStyle(.roundedBorder).padding()
                         Button{
-                            TripModel().addTrip(user: tripModel.loggedinuser ?? User(), title: tripLabel, details: tripdetails, date: tripDate, images: selectedImage ,imageUrl: imageUrl)
-                            showAddTripSheet = false
-                            shouldReload.toggle()
-                            reset()
-                            tripModel.updateUserProfileView()
+                            Task {
+                                   do {
+                                       try await TripModel().addTrip(user: tripModel.loggedinuser ?? User(), title: tripLabel, details: tripdetails, date: tripDate, images: selectedImage, imageUrl: imageUrl)
+                                       showAddTripSheet = false
+                                       shouldReload.toggle()
+                                       reset()
+                                       tripModel.updateUserProfileView()
+                                   } catch {
+                                       
+                                       print("Error adding trip: \(error)")
+                                   }
+                               }
                         }label: {
                             Label("Save",systemImage: "heart.fill").foregroundColor(.green).shadow(color: .blue, radius: 10)
 

@@ -31,24 +31,56 @@ class TImageMode{
     }
     
     
+//    
+//    func saveImageToFile(_ imageUrl: String) -> String? {
+//        guard let url = URL(string: imageUrl) else {
+//            // Handle invalid URL
+//            return nil
+//        }
+//
+//        do {
+//            let imageData = try Data(contentsOf: url)
+//            let imageFileName = "\(Date().timeIntervalSince1970).jpg"
+//            let imageUrl = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0].appendingPathComponent(imageFileName)
+//
+//            try imageData.write(to: imageUrl)
+//            return imageFileName
+//        } catch {
+//            print("Error saving image: \(error)")
+//            return nil
+//        }
+//    }
+//    
     
-    func saveImageToFile(_ imageUrl: String) -> String? {
+    
+    
+    
+    
+    
+    
+    func saveImageToFile(_ imageUrl: String) async throws -> String? {
         guard let url = URL(string: imageUrl) else {
-            // Handle invalid URL
             return nil
         }
 
         do {
-            let imageData = try Data(contentsOf: url)
+            let (data, _) = try await URLSession.shared.data(from: url)
+
             let imageFileName = "\(Date().timeIntervalSince1970).jpg"
             let imageUrl = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0].appendingPathComponent(imageFileName)
 
-            try imageData.write(to: imageUrl)
+            try data.write(to: imageUrl)
             return imageFileName
         } catch {
-            print("Error saving image: \(error)")
+            print("Error: \(error)")
             return nil
         }
     }
+    
+    
+    
+    
+
+    
     
 }

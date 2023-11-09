@@ -91,7 +91,7 @@ class DataManger{
     }
 
     
-    func saveTrip(user: User, title: String, details: String, date: Date, images: [UIImage?] , imageUrl:String) {
+    func saveTrip(user: User, title: String, details: String, date: Date, images: [UIImage?] , imageUrl:String) async {
         if let entity = NSEntityDescription.entity(forEntityName: "Trip", in: persistentContainer.viewContext) {
             if let newTrip = NSManagedObject(entity: entity, insertInto: persistentContainer.viewContext) as? Trip {
                 newTrip.timestamp = Date()
@@ -100,7 +100,7 @@ class DataManger{
                 newTrip.date = date
                 user.addToTrips(newTrip)
                 if !imageUrl.isEmpty{
-                     let imageAddress = TImageMode().saveImageToFile(imageUrl)
+                    let imageAddress = await try? TImageMode().saveImageToFile(imageUrl)
                     addImage(imageUrl: imageAddress ?? "" , date: date , trip:  newTrip)
                 }
                 let imagesUrl = TImageMode().saveImagesToFile(images)

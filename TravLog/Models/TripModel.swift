@@ -18,8 +18,8 @@ class TripModel: ObservableObject{
             loggedinuser = users[0]
         }
     }
-    func addTrip(user: User, title: String, details: String, date: Date, images: [UIImage?] , imageUrl: String){
-        DataManger.shared.saveTrip(user: user, title: title, details: details, date: date, images: images , imageUrl: imageUrl)
+    func addTrip(user: User, title: String, details: String, date: Date, images: [UIImage?] , imageUrl: String) async{
+        await DataManger.shared.saveTrip(user: user, title: title, details: details, date: date, images: images , imageUrl: imageUrl)
         loggedinuser = DataManger.shared.fetchUser(username: storedUsername ?? "")[0]
     }
     
